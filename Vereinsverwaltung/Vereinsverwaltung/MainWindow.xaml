@@ -1,0 +1,35 @@
+﻿<Window x:Class="Vereinsverwaltung.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vereinsverwaltung"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="0,10,0,20">Vereinsverwaltung</TextBlock>
+        <ListView Grid.Row="1" Name="lvnames" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Vorname" Width="Auto" DisplayMemberBinding="{Binding Path=FirstName}" />
+                        <GridViewColumn Header="Nachname" Width="Auto" DisplayMemberBinding="{Binding Path=LastName}" />
+                        <GridViewColumn Header="Vollständiger Name" Width="Auto" DisplayMemberBinding="{Binding Path=FullName}"/>
+                        <GridViewColumn Header="Geburtsdatum" Width="Auto" DisplayMemberBinding="{Binding Path=Birthdate}" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <UniformGrid Grid.Row="2" Rows="1" Columns="3">
+            <Button Name="btnNew" Margin="10,10,10,10">Mitglied hinzufügen</Button>
+            <Button Name="btnDelete" Margin="10,10,10,10">Mitglied löschen</Button>
+            <Button Name="btnEdit" Margin="10,10,10,10">Mitglied bearbeiten</Button>
+        </UniformGrid>
+    </Grid>
+</Window>
