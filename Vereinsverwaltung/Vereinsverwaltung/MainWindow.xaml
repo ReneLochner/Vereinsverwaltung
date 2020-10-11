@@ -6,11 +6,28 @@
         xmlns:local="clr-namespace:Vereinsverwaltung"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <ControlTemplate x:Key="CustomButtonTemplate" TargetType="Button">
+            <Border x:Name="border" BorderBrush="Blue" BorderThickness="1" CornerRadius="5" 
+                        Background="LightBlue" Padding="3" Margin="3">
+                <TextBlock Margin="{TemplateBinding Padding}" Text="{TemplateBinding Content}" 
+                               VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter TargetName="border" Property="Background" Value="LightBlue"></Setter>
+                    <Setter TargetName="border" Property="Cursor" Value="Hand"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition MaxHeight="50px"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Margin="0,10,0,20">Vereinsverwaltung</TextBlock>
         <ListView Grid.Row="1" Name="lvnames" SelectionMode="Single">
@@ -27,10 +44,9 @@
         </ListView>
 
         <UniformGrid Grid.Row="2" Rows="1" Columns="3">
-            <Button Name="btnNew" Margin="10,10,10,10">Mitglied hinzufügen</Button>
-            <Button Name="btnDelete" Margin="10,10,10,10">Mitglied löschen</Button>
-            <Button Name="btnEdit" Margin="10,10,10,10">Mitglied bearbeiten</Button>
+            <Button Template="{StaticResource CustomButtonTemplate}" Name="btnNew">Mitglied hinzufügen</Button>
+            <Button Template="{StaticResource CustomButtonTemplate}" Name="btnDelete">Mitglied löschen</Button>
+            <Button Template="{StaticResource CustomButtonTemplate}" Name="btnEdit">Mitglied bearbeiten</Button>
         </UniformGrid>
     </Grid>
-</Window>
 </mah:MetroWindow>
