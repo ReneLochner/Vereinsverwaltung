@@ -1,4 +1,5 @@
-﻿using MemberManager;
+﻿using MahApps.Metro.Controls;
+using MemberManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Vereinsverwaltung
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         List<Member> members;
         public MainWindow()
